@@ -27,7 +27,7 @@ class FileInfo extends SplFileInfo
      *
      * @return string|null
      */
-    public function getMineType()
+    public function getMimeType()
     {
         $this->getMine(FILEINFO_MIME_TYPE);
     }
@@ -39,7 +39,7 @@ class FileInfo extends SplFileInfo
      *
      * @return string|null
      */
-    public function getMineEncoding()
+    public function getMimeEncoding()
     {
         $this->getMine(FILEINFO_MIME_ENCODING);
     }
@@ -53,9 +53,9 @@ class FileInfo extends SplFileInfo
      *
      * @return string|null
      */
-    private function getMine($mine)
+    private function getMime(int $mime)
     {
-        $info = finfo_open($mine);
+        $info = finfo_open($mime);
         $mime = finfo_file($info, $this->getPathname());
         finfo_close($info);
 
